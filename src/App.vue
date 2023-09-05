@@ -100,6 +100,48 @@ export default {
         </ul>
       </div>
     </section>
+
+    <section class="sponsors">
+      <div class="container">
+        <img src="/src/assets/img/sponsors/1st.png" alt="" class="sponsors__img">
+        <img src="/src/assets/img/sponsors/2nd.png" alt="" class="sponsors__img">
+        <img src="/src/assets/img/sponsors/3rd.png" alt="" class="sponsors__img">
+        <img src="/src/assets/img/sponsors/4th.png" alt="" class="sponsors__img">
+      </div>
+    </section>
+
+    <section class="sketchbook">
+      <div class="container">
+        <div class="sketchbook__text-block">
+          <h1 class="sckectchbook__title">Simple скетчбук</h1>
+          <p class="sketchbook__text">80 листов, твердая обложка, бумага  Fabriano 200 г/м2. Подойдет и для графики и для акварели. Для самых смелых творческих замыслов!</p>
+          <a href="#" class="sketchbook__btn">Купить</a>
+        </div>
+        <img src="/src/assets/img/sketchbook/pic.png" alt="" class="sketchbook__img">
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <img src="./assets/img/footer/Frame1.png" alt="simple" class="footer__logo">
+        <nav class="footer__nav">
+          <ul class="footer_nav-list">
+            <li class="footer_list-item">
+              <a href="#" class="footer__social"><img src="./assets/img/footer/Frame.svg" alt="" class="footer__icon"></a>
+            </li>
+            <li class="footer_list-item">
+              <a href="#" class="footer__social"><img src="./assets/img/footer/tw.svg" alt="" class="footer__icon"></a>
+            </li>
+            <li class="footer_list-item">
+              <a href="#" class="footer__social"><img src="./assets/img/footer/inst.svg" alt="" class="footer__icon"></a>
+            </li>
+            <li class="footer_list-item">
+              <a href="#" class="footer__social"><img src="./assets/img/footer/yt.svg" alt="" class="footer__icon"></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
   </div>
 </template>
 
@@ -248,5 +290,99 @@ export default {
 
 .product_list__item {
   list-style-type: none;
+}
+
+// sponsors
+
+.sponsors {
+  background: #EBEBEB;
+  padding: 90px 0px;
+  .container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}
+
+// sketchbook 
+.sketchbook {
+  padding-top: 90px;
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+.sketchbook__text-block {
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.sckectchbook__title {
+  color: #666;
+  font-family: Roboto;
+  font-size: 40px;
+  margin-bottom: 8px;
+}
+.sketchbook__text {
+  color: #85859B;
+  font-family: Roboto;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+.sketchbook__btn {
+  color: #7875FE;
+  font-family: Roboto;
+  font-size: 20px;
+  text-decoration: none;
+  width: 255px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #7875FE;
+  transition: .3s;
+  &:hover {
+    background: #7875FE;
+    color: #fff;
+    transition: all .3s;
+  }
+}
+@media (max-width: 1199px) {
+  .sketchbook {
+    .container {
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+  }
+}
+
+// footer
+
+.footer {
+  max-width: 100%;
+  height: 80px;
+  background: #4C5866;
+  align-items: center;
+  padding: 28px 0px;
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.footer__nav {
+  width: 186px;
+}
+.footer_nav-list {
+  width: 186px;
+  display: flex;
+  flex-direction: row;
+}
+.footer_list-item {
+  list-style-type: none;
+  margin-left: 30px;
 }
 </style>
