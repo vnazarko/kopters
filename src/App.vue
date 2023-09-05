@@ -1,10 +1,12 @@
 <script>
 import Header from "./components/Header.vue"
 import ResultCard from './components/ResultCard.vue'
+import ProductCard from "./components/ProductCard.vue"
 export default {
   components: {
     Header,
     ResultCard,
+    ProductCard,
   },
 
   data() {
@@ -22,7 +24,33 @@ export default {
           imgUrl: "/src/assets/img/result/third.png",
           title: "V.3",
         }
-      ]
+      ],
+      dataForProduct: [
+        {
+          imgUrl: "/src/assets/img/products/1st.png",
+          title: "Упаковка",
+          circulation: "50",
+          text: "Сделано из крафт-бумаги или плотного картона. Упаковки имеют различные формы и расцветки, изготовим форму под заказ.",
+        },
+        {
+          imgUrl: "/src/assets/img/products/2nd.png",
+          title: "Пакеты",
+          circulation: "200",
+          text: "С прямоугольным дном. От 10 см до 60 см по высоте. Материалы: картон, крафт-бумага. Различные расцветки и дизайн.",
+        },
+        {
+          imgUrl: "/src/assets/img/products/3rd.png",
+          title: "Кейсы",
+          circulation: "30",
+          text: "Подойдет для документов и других бумаг. Различные расцветки, размеры и плотность. Материал: прессованная бумага.",
+        },
+        {
+          imgUrl: "/src/assets/img/products/4th.png",
+          title: "Другие изделия",
+          circulation: "100",
+          text: "Нестандартные упаковки, кейсы и другие изделия различных размеров и конфигураций. Изготовим в кратчайшие сроки.",
+        }
+      ],
     }
   }
 }
@@ -60,6 +88,16 @@ export default {
               <span>Отлив бумажного листа осуществляют на бумагоделательной машине, важнейшей частью которой является непрерывно движущаяся (как транспортер) металлическая или капроновая сетка.</span></p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="product">
+      <div class="container">
+        <ul class="product__list">
+          <li class="product_list__item" v-for="(info, index) in dataForProduct" :key="index">
+            <ProductCard :imgUrl="info.imgUrl" :title="info.title" :circulation="info.circulation" :text="info.text"/>
+          </li>
+        </ul>
       </div>
     </section>
   </div>
@@ -193,5 +231,22 @@ export default {
   .result__text-block {
     width: 100%;
   }
+}
+
+// products
+
+.product {
+  padding: 90px 0px;
+}
+
+.product__list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.product_list__item {
+  list-style-type: none;
 }
 </style>
