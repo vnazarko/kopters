@@ -14,7 +14,7 @@ export default {
     <h1 class="product__title">{{ title }}</h1>
     <h2 class="product__circulation">Тираж от {{ circulation }} штук</h2>
     <p class="product__text">{{ text }}</p>
-    <a href="#" class="product__btn">Подробнее <img src="../assets/img/products/icons8-arrow-50 (1).png" alt="" class="product_btn__icon"></a>
+    <a href="#" class="product__btn">Подробнее <img src="../assets/img/products/right-arrow.png" alt="" class="product_btn__icon"></a>
   </div>  
 </template>
 <style lang="scss" scoped>
@@ -54,6 +54,7 @@ export default {
   align-items: center;
   img {
     margin-left: 6px;
+    width: 20px;
   }
   &:hover {
     img {
