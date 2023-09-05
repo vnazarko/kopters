@@ -1,8 +1,29 @@
 <script>
 import Header from "./components/Header.vue"
+import ResultCard from './components/ResultCard.vue'
 export default {
   components: {
     Header,
+    ResultCard,
+  },
+
+  data() {
+    return {
+      dataForResult: [
+        {
+          imgUrl: "/src/assets/img/result/first.png",
+          title: "V.1",
+        },
+        {
+          imgUrl: "/src/assets/img/result/second.png",
+          title: "V.2",
+        },
+        {
+          imgUrl: "/src/assets/img/result/third.png",
+          title: "V.3",
+        }
+      ]
+    }
   }
 }
 </script>
@@ -13,12 +34,32 @@ export default {
 
     <section class="intro">
       <div class="container">
-      <div class="intro__text-block">
-        <h1 class="intro__title">Простые вещи. Из бумаги</h1>
-        <p class="intro__text">Бума́га (предположительно от итал. bombagia, первоисточником же считается иранский) — волокнистый материал с минеральными добавками. </p>
-        <a href="#" class="intro__btn">Каталог</a>
+        <div class="intro__text-block">
+          <h1 class="intro__title">Простые вещи. Из бумаги</h1>
+          <p class="intro__text">Бума́га (предположительно от итал. bombagia, первоисточником же считается иранский) — волокнистый материал с минеральными добавками. </p>
+          <a href="#" class="intro__btn">Каталог</a>
+        </div>
+        <img src="../src/assets/img/intro/bg.png" alt="" class="intro__bg">
       </div>
-      <img src="../src/assets/img/intro/bg.png" alt="" class="intro__bg">
+    </section>
+
+    <section class="result">
+      <div class="container">
+        <div class="result__cards">
+          <ul class="list-cards">
+            <li class="result_cards__item" v-for="(data, index) in dataForResult" :key="index">
+              <ResultCard :imgUrl="data.imgUrl" :title="data.title"/>
+            </li>
+          </ul>
+        </div>
+        <div class="result__main">
+          <img src="../src/assets/img/result/main.png" alt="" class="result_main__img">
+          <div class="result__text-block">
+            <h1 class="result__title">Максимальная белизна</h1>
+            <p class="result__text">Для повышения белизны, гладкости и мягкости в состав бумажной массы вводят белые минеральные вещества: мел, тальк, каолин и др. Эта операция называется наполнением. <br><br>
+              <span>Отлив бумажного листа осуществляют на бумагоделательной машине, важнейшей частью которой является непрерывно движущаяся (как транспортер) металлическая или капроновая сетка.</span></p>
+          </div>
+        </div>
       </div>
     </section>
   </div>
@@ -79,6 +120,78 @@ export default {
 @media (max-width: 767px) {
   .intro__bg {
     display: none;
+  }
+}
+
+// result
+
+.result {
+  padding: 90px 0px;
+  background: #EBEBEB;
+}
+.result__cards {
+  max-width: 100%;
+}
+
+.list-cards {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.result_cards__item {
+  list-style-type: none;
+}
+
+.result__main {
+  width: 100%;
+  margin-top: 90px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.result__text-block {
+  width: 350px;
+  height: 445px;
+  display: flex;
+  flex-direction: column;
+}
+.result__title {
+  color: #666;
+  font-family: Roboto;
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+.result__text {
+  font-family: Roboto;
+  font-size: 18px;
+  color: #85859B;
+}
+
+@media (max-width: 1199px) {
+  .result__main {
+    position: relative;
+    top: 40px;
+    align-items: flex-start;
+  }
+
+  .result_main__img {
+    width: 330px;
+    height: 256px;
+  }
+
+  .intro__text {
+    line-height: 170% !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .result__main {
+    flex-direction: column;
+  }
+  .result__text-block {
+    width: 100%;
   }
 }
 </style>
