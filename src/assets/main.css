@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.container {
+    width: 1020px;
+    margin: 0 auto;
+}
+
+@media (max-width: 1023px) {
+    .container {
+        width: 700px;
+    }
+}
+@media (max-width: 767px) {
+    .container {
+        width: 420px;
+    }
+}
+@media (max-width: 429px) {
+    .container {
+        width: 300px;
+    }
+}
