@@ -38,7 +38,7 @@ export default {
         text-decoration: none
         color: #fff
         font-family: Unbounded
-        font-size: 20px
+        font-size: 20px 
         font-style: normal
         font-weight: 600
         line-height: normal
@@ -48,7 +48,7 @@ export default {
             opacity: 1
             transition: all .3s
 
-@media (max-width: 1023px) 
+@media (max-width: 1024px) 
     .nav__list 
         gap: 30px
     a

@@ -44,7 +44,7 @@ export default {
     line-height: normal
     margin-top: 180px
 
-@media (max-width: 1023px) 
+@media (max-width: 1200px) 
     .intro__title
         font-size: 48px
 @media (max-width: 1023px) 
