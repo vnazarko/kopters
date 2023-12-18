@@ -1,12 +1,15 @@
 <script setup lang="ts">
 import IntroComp from '../components/IntroComp.vue'
 import ProduceComp from '../components/ProduceComp.vue'
+import ClientsComp from '../components/ClientsComp.vue'
 
 import { useIntroStore } from '../stores/intro';
 import { useProduceStore } from '../stores/produce';
+import { useClientsStore } from '../stores/clients';
 
 const introStore = useIntroStore();
 const produceStore = useProduceStore();
+const clientsStore = useClientsStore();
 </script>
 
 <template>
@@ -16,8 +19,9 @@ const produceStore = useProduceStore();
                  :links="introStore.links"
                  :title="introStore.title"
       />
-      <ProduceComp :title="produceStore.title"
-                   :images="produceStore.images" 
+      <ProduceComp :title="produceStore.title" />
+      <ClientsComp :title="clientsStore.title"
+                   :images="clientsStore.images" 
       />
     </div>
   </div>
