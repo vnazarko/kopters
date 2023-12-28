@@ -16,25 +16,37 @@ export default {
         let modalInputName = ref('');
         let modalInputPhone = ref('');;
 
-        function toggleModal(id) {
+        function toggleModal(id: string) {
             let modal = document.getElementById(id);
-            modal.classList.toggle('active');
+            if (modal) {
+                modal.classList.toggle('active');
+            } else {
+                return false
+            }
         }
         function validatationModal() {
             let infoElem = document.getElementById('modalInfo');
             let errorText = 'Ой! Вы неверно указали данные';
             let sucsessText = 'Отправлено! Ожидайте звонка'
-
-            if (modalInputName.value.length == 0 || modalInputPhone.value.length == 0) {
-                infoElem.textContent = errorText
+            if (infoElem) {
+                if (modalInputName.value.length == 0 || modalInputPhone.value.length == 0) {
+                    infoElem.textContent = errorText
+                } else {
+                    infoElem.textContent = sucsessText;
+                    
+                    const date = new Date();
+                    const textMessage = `${date.getDate()}.${date.getMonth()}, ${date.getHours()}:${date.getMinutes()} \n ${modalInputName.value} оставил заявку на коптер \n Телефон: ${modalInputPhone.value}`;
+                    sendMessage(textMessage);
+    
+                    const modalCont = document.getElementById('buyModalContainer')
+                    if (modalCont) {
+                        modalCont.classList.remove('active');
+                    } else {
+                        return false
+                    }
+                }
             } else {
-                infoElem.textContent = sucsessText;
-                
-                const date = new Date();
-                const textMessage = `${date.getDate()}.${date.getMonth()}, ${date.getHours()}:${date.getMinutes()} \n${modalInputName.value} оставил заявку на коптер \nТелефон: ${modalInputPhone.value}`;
-                sendMessage(textMessage);
-
-                document.getElementById('buyModalContainer').classList.remove('active');
+                return false
             }
             
         }

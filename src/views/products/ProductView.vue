@@ -26,7 +26,7 @@ const footerStore = useFooterStore()
                          :info="vent.info"
             />
             <hr>
-            <video controls width="100%" class="video" autoplay muted preload>
+            <video controls width="100%" class="video" autoplay muted preload="true">
                 <source :src="video.default"/>
             </video>
             <div class="footer-cont">
