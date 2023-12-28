@@ -37,6 +37,7 @@ export default {
         margin: 100px 420px 40px -80px
     .img-container 
         margin: 0px 420px 0px -60px
+        
 @media (max-width: 550px) 
     .img-container
         flex-direction: column

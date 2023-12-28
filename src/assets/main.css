@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
 
 * {
     margin: 0;
@@ -27,6 +28,63 @@ body {
     margin-top: 100px;
 }
 
+.subtitle {
+    font-family: Montserrat;
+}
+
+.swal2-popup {
+    width: 700px;
+}
+
+.swal2-title {
+    font-family: Unbounded;
+    margin-top: 30px;
+}
+.swal2-html-container {
+    display: flex;
+    flex-direction: column;
+}
+.swal2-html-container h2 {
+    font-family: Montserrat;
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 40px;
+}
+.swal2-html-container input {
+    width: 435px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    border: 2px solid #3A5A40;
+    padding: 10px;
+    border-radius: 8px;
+    background: #DAD7CD;
+    color: #545454;
+    font-family: Unbounded;
+}
+.swal2-html-container input::placeholder {
+    font-size: 15px;
+    color: #545454;
+    font-family: Unbounded;
+}
+.swal2-html-container input:focus {
+    border: 2px solid #3A5A40;
+}
+.swal2-confirm  {
+    background: #3A5A40;
+}
+.swal2-input {
+    width: 435px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #3A5A40;
+}
+.swal2-input:focus {
+    border: 2px solid #3A5A40;
+    box-shadow: none;
+}
+.swal2-input::placeholder {
+    color: #545454;
+}
 @media (max-width: 1200px) {
     .container {
         width: 700px;
