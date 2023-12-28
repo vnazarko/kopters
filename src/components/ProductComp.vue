@@ -1,5 +1,6 @@
 <script scoped lang="ts">
 import { ref } from 'vue'
+import { mask } from 'vue-the-mask';
 
 import { sendMessage } from '@/tg/sendMessage';
 
@@ -8,6 +9,9 @@ export default {
         title: String,
         img: Object,
         info: Array
+    },
+    directives: {
+        mask
     },
     setup() {
         let modalInputName = ref('');

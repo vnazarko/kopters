@@ -9,6 +9,7 @@ export function sendMessage(message: string): void {
 
     const requestOptions = {
         method: 'POST',
+        parse_mode: 'Markdown',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
         },

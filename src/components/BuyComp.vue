@@ -31,7 +31,7 @@ export default {
                 infoElem.textContent = sucsessText;
                 
                 const date = new Date();
-                const textMessage = `${date.getDate()}.${date.getMonth()}, ${date.getHours()}:${date.getMinutes()} \n ${modalInputName.value} оставил заявку на коптер \n Телефон: ${modalInputPhone.value}`;
+                const textMessage = `${date.getDate()}.${date.getMonth()}, ${date.getHours()}:${date.getMinutes()} \n${modalInputName.value} оставил заявку на коптер \nТелефон: ${modalInputPhone.value}`;
                 sendMessage(textMessage);
 
                 document.getElementById('buyModalContainer').classList.remove('active');
