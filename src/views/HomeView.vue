@@ -4,10 +4,10 @@ import ProduceComp from '../components/ProduceComp.vue'
 import ClientsComp from '../components/ClientsComp.vue'
 import FooterComp from '../components/FooterComp.vue'
 
-import { useIntroStore } from '../stores/intro';
-import { useProduceStore } from '../stores/produce';
-import { useClientsStore } from '../stores/clients';
-import {  useFooterStore } from '../stores/footer';
+import { useIntroStore } from '@/stores/home/introHomePage';
+import { useProduceStore } from '@/stores/home/produce';
+import { useClientsStore } from '@/stores/home/clients';
+import { useFooterStore } from '@/stores/home/footer';
 
 const introStore = useIntroStore();
 const produceStore = useProduceStore();
@@ -33,3 +33,4 @@ const footerStore = useFooterStore();
     </div>
   </div>
 </template>
+../stores/introHomePage

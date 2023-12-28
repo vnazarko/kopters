@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 
-import * as small from '../assets/img/produce/small.png'
-import * as big from '../assets/img/produce/big.png'
+import * as small from '@/assets/img/produce/small.png'
+import * as big from '@/assets/img/produce/big.png'
 
 export const useProduceStore = defineStore('produce', {
   state: () => {

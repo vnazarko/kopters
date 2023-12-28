@@ -195,5 +195,10 @@ export default {
         line-height: 23px
     #buyModal
         width: calc( 100% - 30px )
+    .modal-content
+        width: 350px
 
+@media (max-width: 430px)
+    .modal-content
+        width: 300px
 </style>

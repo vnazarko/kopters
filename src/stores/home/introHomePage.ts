@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 
-import * as logo from '../assets/img/intro/logo.svg'
+import * as logo from '@/assets/img/intro/logo.svg'
 
 export const useIntroStore = defineStore('intro', {
   state: () => {

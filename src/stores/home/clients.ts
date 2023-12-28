@@ -1,8 +1,8 @@
 import { defineStore } from 'pinia'
 
-import * as first from '../assets/img/clients/first.png';
-import * as second from '../assets/img/clients/second.png';
-import * as third from '../assets/img/clients/third.png';
+import * as first from '@/assets/img/clients/first.png';
+import * as second from '@/assets/img/clients/second.png';
+import * as third from '@/assets/img/clients/third.png';
 
 export const useClientsStore = defineStore('clients', {
   state: () => {
