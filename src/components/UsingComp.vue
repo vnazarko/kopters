@@ -17,7 +17,7 @@ export default {
 </template>
 <style scoped lang="sass">
 .using
-    margin-top: 400px
+    margin-top: 450px
 .using-container
     width: 100%
     display: flex
@@ -27,7 +27,7 @@ export default {
 
 .item 
     width: calc(50% - 40px)
-    height: 574px
+    height: 490px
     padding: 30px
     display: flex
     align-items: flex-start
@@ -51,6 +51,12 @@ export default {
         .line 
             width: 200px
             transition: all .3s
+@media (max-width: 1200px)
+    .using
+        margin-top: 470px
+@media (max-width: 1024px)
+    .using
+        margin-top: 250px
 @media (max-width: 768px) 
     .using
         margin-top: 250px
@@ -58,5 +64,5 @@ export default {
         width: 100%
 @media (max-width: 430px)
     .using
-        margin-top: 200px
+        margin-top: 250px
 </style>

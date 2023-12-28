@@ -95,6 +95,7 @@ export default {
     font-size: 24px
     font-weight: 700
     opacity: .7
+    cursor: pointer
     transition: all 0.3s 
     &:hover
         opacity: 1
