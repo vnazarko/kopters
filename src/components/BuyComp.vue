@@ -19,20 +19,25 @@ export default {
         function toggleModal(id) {
             let modal = document.getElementById(id);
             modal.classList.toggle('active');
-            console.log(modalInputName.value);
         }
         function validatationModal() {
+            let infoElem = document.getElementById('modalInfo');
+            let errorText = 'Ой! Вы неверно указали данные';
+            let sucsessText = 'Отправлено! Ожидайте звонка'
+
             if (modalInputName.value.length == 0 || modalInputPhone.value.length == 0) {
-                console.log('Error');
+                infoElem.textContent = errorText
             } else {
-                console.log(modalInputName.value, modalInputPhone.value);
+                infoElem.textContent = sucsessText;
                 
+                const date = new Date();
+                const textMessage = `${date.getDate()}.${date.getMonth()}, ${date.getHours()}:${date.getMinutes()} \n ${modalInputName.value} оставил заявку на коптер \n Телефон: ${modalInputPhone.value}`;
+                sendMessage(textMessage);
+
+                document.getElementById('buyModalContainer').classList.remove('active');
             }
             
         }
-        const chatId = '847428051';
-        const textMessage = 'Привет, пупсик';
-        sendMessage(chatId, textMessage);
 
         return { modalInputName, modalInputPhone, toggleModal, validatationModal }
     }
@@ -44,7 +49,6 @@ export default {
         <h2 class="subtitle">{{ subtitle }}</h2>
         <div class="buy__buttons">
             <button class="btn" @click="toggleModal('buyModalContainer')">Покупка</button>
-            <button class="btn">Контакты</button>
         </div>
         <div id="buyModalContainer">
             <div id="buyModal">
@@ -53,8 +57,9 @@ export default {
                     <h1 class="modal__title">Оставьте заявку</h1>
                     <h2 class="modal__subtitle">Для этого вам нужно оставить свой номер телефона и свое имя</h2>
                     <form class="modal__form">
-                        <input type="text" class="modal__input" v-model="modalInputName">
-                        <input type="tel" class="modal__input" v-model="modalInputPhone" v-mask="'+7 (###) ###-##-##'" >
+                        <input type="text" class="modal__input" v-model="modalInputName" placeholder="Имя">
+                        <input type="tel" class="modal__input" v-model="modalInputPhone" v-mask="'+7 (###) ###-##-##'" placeholder="Телефон">
+                        <p class="modal__error" id="modalInfo"></p>
                         <button type="button" class="modal__btn" @click="validatationModal">Отправить</button>
                     </form>
                 </div>
@@ -96,9 +101,6 @@ export default {
         transition: all 0.3s 
     &:first-child
         background: #DAD7CD
-    &:last-child
-        background: #588157
-        color: #fff
 
 #buyModalContainer
     display: none
@@ -111,12 +113,11 @@ export default {
 
 #buyModal 
     width: 600px
-    height: 700px
     background: #DAD7CD
     position: fixed
     top: 50%
     left: 50%
-    padding: 20px
+    padding: 20px 20px 68px 20px
     transform: translate(-50%, -50%)
     border-radius: 40px
 
@@ -134,4 +135,65 @@ export default {
 
 .active 
     display: block !important
+
+.modal-content 
+    width: 58%
+    margin: 0 auto
+
+.modal__title 
+    font-family: Unbounded
+    color: #588157
+    text-align: center
+
+.modal__subtitle
+    font-family: Unbounded
+    color: #588157
+    text-align: center
+    font-size: 16px
+    margin-top: 20px
+    width: 100%
+
+.modal__form
+    width: 100%
+    display: flex
+    flex-direction: column
+    margin-top: 30px
+
+.modal__input
+    margin-top: 10px
+    background: none
+    border: 2px solid #588157
+    padding: 15px
+    border-radius: 15px
+    font-size: 16px
+    font-family: Unbounded
+    &::placeholder
+        font-size: 16px
+        font-family: Unbounded
+
+.modal__error 
+    font-family: Unbounded
+    margin-top: 15px
+    margin-bottom: 20px
+
+.modal__btn
+    background: #588157
+    border: none
+    padding: 15px
+    border-radius: 15px
+    color: #DAD7CD
+    font-family: Unbounded
+    font-size: 16px 
+    cursor: pointer
+    &:focus 
+        box-shadow: 0px 5px 10px 2px rgba(88, 129, 87, 0.2) inset
+
+@media (max-width: 768px)
+    .subtitle
+        font-size: 22px
+        width: 100%
+        line-height: 23px
+    #buyModal
+        width: calc( 100% - 30px )
+
 </style>

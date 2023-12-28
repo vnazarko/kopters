@@ -71,4 +71,14 @@ hr
     hr
         width: 100% 
         margin: 0
+
+@media (max-width: 430px) 
+    .footer
+        margin-top: 750px
+    .footer__main
+        flex-direction: column
+    .column__title
+        margin-top: 30px
+    .column__text 
+        margin-top: 10px
 </style>

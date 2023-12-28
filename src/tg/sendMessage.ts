@@ -1,9 +1,9 @@
-export function sendMessage(chatId: string, message: string): void {
+export function sendMessage(message: string): void {
     const token = '6689950932:AAGf_tJtrYxU8N0xTQoI2T8uXf8AuYmTA0U'; 
     const telegramAPI = `https://api.telegram.org/bot${token}/sendMessage`;
 
     const params = new URLSearchParams({
-        chat_id: chatId,
+        chat_id: '-1002013063666',
         text: message,
     });
 
