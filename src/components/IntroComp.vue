@@ -1,5 +1,6 @@
 <script lang="ts">
 import HeaderComp from './HeaderComp.vue'
+import { ref } from 'vue'
 
 export default {
     name: 'IntroComp',
@@ -10,6 +11,10 @@ export default {
         img: Object,
         links: Array,
         title: String,
+    },
+    setup(props) {
+        const title = ref(props.title)
+        return { title }
     }
 }
 </script>

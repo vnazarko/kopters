@@ -1,7 +1,15 @@
 <script lang="ts">
+interface itemInterface {
+    bg: any,
+    title: string
+}
+
 export default {
     props: {
         use: Array,
+    },
+    setup(props) {
+        return { use: props.use as itemInterface[] };
     }
 }
 </script>

@@ -5,11 +5,9 @@ import FooterComp from '../components/FooterComp.vue';
 
 import { useIntroCatalogStore } from '../stores/catalog/introCatalogPage';
 import { useProductsStore } from '../stores/catalog/products';
-import { useFooterStore } from '../stores/home/footer';
 
 const introStore = useIntroCatalogStore();
 const productsStore = useProductsStore();
-const footerStore = useFooterStore();
 
 </script>
 <template>
@@ -17,14 +15,11 @@ const footerStore = useFooterStore();
         <div class="container">
             <IntroComp :img="introStore.img" 
                        :links="introStore.links"
-                       :title="introStore.title"
+                       title="Каталог"
             />
             <CatalogComp :use="productsStore.products"
             />
-            <FooterComp :title="footerStore.buy.title"
-                        :subtitle="footerStore.buy.subtitle"
-                        :footer="footerStore.footer"
-            />
+            <FooterComp />
         </div>
     </div>
 </template>

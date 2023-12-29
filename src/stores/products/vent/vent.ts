@@ -1,12 +1,9 @@
 import { defineStore } from 'pinia'
 
-import * as first from '@/assets/img/product/vent/swiper/1.jpg'
-
 export const useVentStore = defineStore('vent', {
   state: () => {
     return {
       title: 'Потолочный вентилятор',
-      img: first,
       info: [
         {
             title: 'Рабочее напряжение',

@@ -1,14 +1,24 @@
 <script lang="ts">
 import BuyComp from "./BuyComp.vue"
+import { useFooterStore } from '../stores/home/footer';
+
+interface ColumnInterface {
+  title: string;
+  text: { text: string }[];
+}
 
 export default {
-    props: {
-        title: String,
-        subtitle: String,
-        footer: Array
-    },
     components: {
         BuyComp
+    },
+    setup() {
+        const store = useFooterStore();
+
+        return {
+            title: store.buy.title as string,
+            subtitle: store.buy.subtitle as string,
+            footer: store.footer as ColumnInterface[]
+        }
     }
 }
 </script>
@@ -19,10 +29,10 @@ export default {
                  :subtitle="subtitle"
         />
         <div class="footer__main">
-            <div class="footer__column" v-for="(column, index) in footer" :key="index">
+            <div v-for="(column, columnIndex) in footer" :key="columnIndex" class="footer__column">
                 <h3 class="column__title">{{ column.title }}</h3>
-                <div class="column__text" v-for="text in column.text" :key="text.id" v-html="text.text"></div>
-            </div>
+                <div class="column__text" v-for="(text, textIndex) in column.text" :key="textIndex" v-html="text.text"></div>
+              </div>
         </div>
         <hr>
     </footer>

@@ -11,14 +11,11 @@
     "type-check": "vue-tsc --build --force"
   },
   "dependencies": {
-    "imask": "^7.2.1",
-    "inputmask": "^5.0.8",
-    "node-telegram-bot-api": "^0.64.0",
     "pinia": "^2.1.7",
     "swiper": "^11.0.5",
     "vue": "^3.3.11",
+    "vue-inputmask": "^0.2.1",
     "vue-router": "^4.2.5",
-    "vue-sweetalert2": "^5.0.5",
     "vue-the-mask": "^0.11.1"
   },
   "devDependencies": {

@@ -22,7 +22,6 @@ const footerStore = useFooterStore()
             />
             <hr>
             <ProductComp :title="vent.title"
-                         :img="vent.img"
                          :info="vent.info"
             />
             <hr>

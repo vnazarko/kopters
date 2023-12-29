@@ -1,14 +1,24 @@
 <script lang="ts">
+interface linkInterface {
+    name: string,
+    path: string
+}
+
 export default {
     props: {
         img: Object,
         links: Array,
+    },
+    setup(props) {
+        return {
+            links: props.links as linkInterface[]
+        }
     }
 }
 </script>
 <template>
     <header class="header">
-        <img :src="img.default" class="logo">
+        <img src="../assets/img/intro/logo.svg" alt="Логотип компании" class="logo">
 
         <nav class="nav">
             <ul class="nav__list">

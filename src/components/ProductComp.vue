@@ -1,21 +1,21 @@
 <script scoped lang="ts">
 import { ref } from 'vue'
-import { mask } from 'vue-the-mask';
 
-import { sendMessage } from '@/tg/sendMessage';
+import { sendMessage } from '../tg/sendMessage';
+
+interface itemInterface {
+    title: string,
+    text: string
+}
 
 export default {
     props: {
         title: String,
-        img: Object,
         info: Array
     },
-    directives: {
-        mask
-    },
-    setup() {
+    setup(props) {
         let modalInputName = ref('');
-        let modalInputPhone = ref('');;
+        let modalInputPhone = ref('+7');;
 
         function toggleModal(id: string) {
             let modal = document.getElementById(id);
@@ -52,7 +52,7 @@ export default {
             
         }
 
-        return { modalInputName, modalInputPhone, toggleModal, validatationModal }
+        return { modalInputName, modalInputPhone, toggleModal, validatationModal, info: props.info as itemInterface[] };
     }
 }
 </script>
@@ -61,7 +61,7 @@ export default {
         <h1 class="title">{{ title }}</h1>
         <main class="product__main">
             <div class="product__col">
-                <img :src="img.default" class="product__img">
+                <img src="../assets/img/product/vent/swiper/1.jpg" class="product__img">
             </div>
             <div class="product__col">
                 <h1 class="col__title">Характеристики</h1>
@@ -80,7 +80,7 @@ export default {
                     <h2 class="modal__subtitle">Для этого вам нужно оставить свой номер телефона и свое имя</h2>
                     <form class="modal__form">
                         <input type="text" class="modal__input" v-model="modalInputName" placeholder="Имя">
-                        <input type="tel" class="modal__input" v-model="modalInputPhone" v-mask="'+7 (###) ###-##-##'" placeholder="Телефон">
+                        <input type="tel" class="modal__input" v-model="modalInputPhone" maxlength="12" value="+7" placeholder="Телефон">
                         <p class="modal__error" id="modalInfo"></p>
                         <button type="button" class="modal__btn" @click="validatationModal">Отправить</button>
                     </form>
@@ -155,6 +155,7 @@ export default {
     border-radius: 8px
     transition: .3s
     cursor: pointer
+    border: none
     &:hover
         opacity: 1
         transition: all 0.3s 

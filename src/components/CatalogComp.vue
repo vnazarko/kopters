@@ -1,5 +1,5 @@
 <script lang="ts">
-import * as kopter from '../assets/img/products/kopter.png'
+import * as kopter from '../assets/img/product/vent/swiper/1.jpg'
 
 export default {
     data() {

@@ -1,9 +1,19 @@
 <script lang="ts">
+interface imgInterface {
+    imgPath: any,
+    alt: string
+}
+
 export default {
     name: 'ClientsComp',
     props: {
         title: String,
         images: Array
+    },
+    setup(props) {
+        return {
+            images: props.images as imgInterface[],
+        }
     }
 }
 </script>

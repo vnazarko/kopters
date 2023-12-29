@@ -1,20 +1,16 @@
 <script lang="ts">
-import { mask } from 'vue-the-mask';
 import { ref } from 'vue'
 
-import { sendMessage } from '@/tg/sendMessage';
+import { sendMessage } from '../tg/sendMessage';
 
 export default {
     props: {
         title: String,
         subtitle: String,
     },
-    directives: {
-        mask
-    },
     setup() {
         let modalInputName = ref('');
-        let modalInputPhone = ref('');;
+        let modalInputPhone = ref('+7');;
 
         function toggleModal(id: string) {
             let modal = document.getElementById(id);
@@ -70,7 +66,7 @@ export default {
                     <h2 class="modal__subtitle">Для этого вам нужно оставить свой номер телефона и свое имя</h2>
                     <form class="modal__form">
                         <input type="text" class="modal__input" v-model="modalInputName" placeholder="Имя">
-                        <input type="tel" class="modal__input" v-model="modalInputPhone" v-mask="'+7 (###) ###-##-##'" placeholder="Телефон">
+                        <input type="tel" class="modal__input" v-model="modalInputPhone" maxlength="12" placeholder="Телефон">
                         <p class="modal__error" id="modalInfo"></p>
                         <button type="button" class="modal__btn" @click="validatationModal">Отправить</button>
                     </form>

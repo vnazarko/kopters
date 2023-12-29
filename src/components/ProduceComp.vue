@@ -23,7 +23,7 @@ export default {
 </template>
 <style lang="sass" scoped>
 .title
-    margin-top: 400px
+    margin-top: 450px
 
 .img-container
     display: flex

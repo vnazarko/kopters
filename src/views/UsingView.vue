@@ -16,14 +16,11 @@ const footerStore = useFooterStore();
         <div class="container">
             <IntroComp :img="introStore.img" 
                        :links="introStore.links"
-                       :title="introStore.title"
+                       title="Применение наших вентиляторов"
             />
             <UsingComp :use="usingStore.use"
             />
-            <FooterComp :title="footerStore.buy.title"
-                        :subtitle="footerStore.buy.subtitle"
-                        :footer="footerStore.footer"
-            />
+            <FooterComp />
         </div>
     </div>
 </template>
