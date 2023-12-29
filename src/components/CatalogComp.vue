@@ -8,7 +8,7 @@ export default {
             {
                 bg: kopter,
                 title: 'Потолочные вентиляторы',
-                path: '/catalog/vent'
+                path: '/vent'
             },
           ]
         }

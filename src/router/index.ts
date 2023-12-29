@@ -24,7 +24,7 @@ const router = createRouter({
       component: CatalogView
     },
     {
-      path: '/catalog/vent',
+      path: '/vent',
       name: 'vent',
       component: ProductView
     }
