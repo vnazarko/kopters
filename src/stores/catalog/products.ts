@@ -8,7 +8,8 @@ export const useProductsStore = defineStore('products', {
       products: [
         {
             bg: kopter,
-            title: 'Потолочные вентиляторы'
+            title: 'Потолочные вентиляторы',
+            path: '/catalog/vent'
         },
       ]
     }

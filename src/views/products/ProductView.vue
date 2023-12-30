@@ -7,8 +7,6 @@ import { useHeaderStore } from '../../stores/products/header';
 import { useVentStore } from '../../stores/products/vent/vent';
 import { useFooterStore } from '../../stores/home/footer';
 
-import * as video from '../../assets/img/product/vent/swiper/video.mp4';
-
 const headerStore = useHeaderStore();
 const vent = useVentStore();
 const footerStore = useFooterStore()
@@ -22,11 +20,13 @@ const footerStore = useFooterStore()
             />
             <hr>
             <ProductComp :title="vent.title"
+                         :img="vent.img"
                          :info="vent.info"
+                         :description="vent.description"
             />
             <hr>
             <video controls width="100%" class="video" autoplay muted preload="true">
-                <source :src="video.default"/>
+                <source :src="vent.video.default"/>
             </video>
             <div class="footer-cont">
                 <FooterComp :title="footerStore.buy.title"

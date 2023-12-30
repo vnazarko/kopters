@@ -17,7 +17,7 @@ const productsStore = useProductsStore();
                        :links="introStore.links"
                        title="Каталог"
             />
-            <CatalogComp :use="productsStore.products"
+            <CatalogComp :products="productsStore.products"
             />
             <FooterComp />
         </div>

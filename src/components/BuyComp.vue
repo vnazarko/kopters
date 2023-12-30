@@ -1,8 +1,8 @@
 <script lang="ts">
 import { ref } from 'vue'
+import axios from 'axios';
 
 import { sendMessage } from '../sendMessage/sendTgMessage';
-import axios from 'axios';
 
 export default {
     props: {
@@ -14,7 +14,7 @@ export default {
         let modalInputPhone = ref('+7');
 
         const recipient = 'alg.vnazarenko@gmail.com';
-        const subject = 'Коптеры';
+        const subject = 'Заявка на коптер';
 
         function sendEmail() {
             const data = {
@@ -52,7 +52,7 @@ export default {
                     
                     const date = new Date();
                     const textMessage = `${date.getDate()}.${date.getMonth()}, ${date.getHours()}:${date.getMinutes()} \n ${modalInputName.value} оставил заявку на коптер \n Телефон: ${modalInputPhone.value}`;
-                    // sendMessage(textMessage);
+                    sendMessage(textMessage);
                     sendEmail();
     
                     const modalCont = document.getElementById('buyModalContainer')

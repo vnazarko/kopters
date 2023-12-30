@@ -102,7 +102,7 @@
     "yallist": "^4.0.0"
   },
   "scripts": {
-    "test": "node app.js"
+    "test": "npm run dev"
   },
   "author": "",
   "license": "ISC"

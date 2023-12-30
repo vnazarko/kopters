@@ -1,18 +1,20 @@
 <script lang="ts">
-import * as kopter from '../assets/img/product/vent/swiper/1.jpg'
+
+interface itemInterface {
+    bg: any,
+    title: string,
+    path: string
+}
 
 export default {
-    data() {
-        return {
-            products: [
-            {
-                bg: kopter,
-                title: 'Потолочные вентиляторы',
-                path: '/vent'
-            },
-          ]
-        }
+    props: {
+        products: Array,
     },
+    setup(props) {
+        return {
+            products: props.products as itemInterface[],
+        }
+    }
 }
 </script>
 <template>
@@ -45,6 +47,7 @@ export default {
     justify-content: flex-end
     background-position: center
     text-decoration: none
+    border-radius: 8px
     &__title
         color: #FFF
         font-family: Unbounded

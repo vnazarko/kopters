@@ -1,5 +1,6 @@
 <script scoped lang="ts">
 import { ref } from 'vue'
+import axios from 'axios';
 
 import { sendMessage } from '../sendMessage/sendTgMessage';
 
@@ -11,11 +12,38 @@ interface itemInterface {
 export default {
     props: {
         title: String,
-        info: Array
+        img: Object,
+        info: Array,
+        description: String,
     },
     setup(props) {
         let modalInputName = ref('');
-        let modalInputPhone = ref('+7');;
+        let modalInputPhone = ref('+7');
+
+        let activeTab = ref('tab1');
+
+        const setActiveTab = () => {
+            activeTab.value = activeTab.value === 'tab1' ? 'tab2' : 'tab1';
+        };
+
+        const recipient = 'alg.vnazarenko@gmail.com';
+        const subject = 'Коптеры';
+
+        function sendEmail() {
+            const data = {
+                to: recipient,
+                subject: subject,
+                text: `${modalInputName.value} оставил заявку \n ${modalInputPhone.value}`
+            };
+
+            axios.post('http://localhost:5183/send-email', data)
+                .then(response => {
+                    console.log(response.data); 
+                })
+                .catch(error => {
+                    console.error('Ошибка:', error);
+                });
+        }
 
         function toggleModal(id: string) {
             let modal = document.getElementById(id);
@@ -38,6 +66,7 @@ export default {
                     const date = new Date();
                     const textMessage = `${date.getDate()}.${date.getMonth()}, ${date.getHours()}:${date.getMinutes()} \n ${modalInputName.value} оставил заявку на коптер \n Телефон: ${modalInputPhone.value}`;
                     sendMessage(textMessage);
+                    sendEmail();
     
                     const modalCont = document.getElementById('buyModalContainer')
                     if (modalCont) {
@@ -52,7 +81,7 @@ export default {
             
         }
 
-        return { modalInputName, modalInputPhone, toggleModal, validatationModal, info: props.info as itemInterface[] };
+        return { modalInputName, modalInputPhone, activeTab, setActiveTab, toggleModal, validatationModal, info: props.info as itemInterface[] };
     }
 }
 </script>
@@ -61,13 +90,16 @@ export default {
         <h1 class="title">{{ title }}</h1>
         <main class="product__main">
             <div class="product__col">
-                <img src="../assets/img/product/vent/swiper/1.jpg" class="product__img">
+                <img v-if="img" :src="img.default" class="product__img">
             </div>
             <div class="product__col">
-                <h1 class="col__title">Характеристики</h1>
-                <div class="col__info" v-for="(item, index) in info" :key="index">
+                <h1 class="col__title"><span @click="setActiveTab" :class="{ 'active' : activeTab === 'tab1' }" >Характеристики</span> | <span @click="setActiveTab" :class="{ 'active' : activeTab === 'tab2' }" >Описание</span></h1>
+                <div class="col__info" v-for="(item, index) in info" :key="index" v-show="activeTab == 'tab1' ">
                     <p class="info__title">{{ item.title }}</p>
                     <p class="info__text">{{ item.text }}</p>
+                </div>
+                <div class="col__info" v-show="activeTab === 'tab2' ">
+                    <p class="col__description">{{ description }}</p>
                 </div>
                 <button class="col__btn" @click="toggleModal('buyModalContainer')">Оставить заявку</button>
             </div>
@@ -114,12 +146,28 @@ export default {
 .col__title
     color: #FFF
     font-family: Unbounded
-    font-size: 20px
+    font-size: 25px
     font-style: normal
     font-weight: 700
     line-height: normal
     text-align: center
     margin-bottom: 36px
+    display: flex
+    justify-content: space-between
+    span 
+        opacity: .7
+        cursor: pointer
+        width: 100%
+        font-size: 20px
+        &:hover 
+            opacity: 1
+        &:first-child
+            text-align: left
+        &:last-child
+            text-align: right
+    .active 
+        opacity: 1
+        cursor: auto
 
 .col__info
     width: 100%
@@ -140,6 +188,12 @@ export default {
 .info__text
     font-weight: 700
 
+.col__description 
+    color: #DAD7CD 
+    font-size: 19px
+    font-family: Montserrat 
+    font-weight: 500
+
 .col__btn 
     color: #000
     text-align: center
@@ -151,7 +205,7 @@ export default {
     opacity: .7
     width: 100%
     padding: 10px 0
-    margin-top: 13px
+    margin-top: 8px
     border-radius: 8px
     transition: .3s
     cursor: pointer

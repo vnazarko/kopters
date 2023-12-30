@@ -22,7 +22,7 @@ async function sendEmail(to, subject, text) {
     
     console.log('Email sent: ' + info.response);
 
-    return { success: true, message: 'Письмо успешно отправлено' };
+    return { success: true, message: `Письмо успешно отправлено, ${process.env.EMAIL_USER}` };
   } catch (error) {
     console.error('Ошибка отправки письма:', error);
 

@@ -18,7 +18,9 @@ export default {
 </script>
 <template>
     <header class="header">
-        <img src="../assets/img/intro/logo.svg" alt="Логотип компании" class="logo">
+        <router-link to="/">
+            <img src="../assets/img/intro/logo.svg" alt="Логотип компании" class="logo">
+        </router-link>
 
         <nav class="nav">
             <ul class="nav__list">

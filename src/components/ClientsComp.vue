@@ -21,7 +21,9 @@ export default {
     <section class="clients">
         <h1 class="title">{{ title }}</h1>
         <div class="img-container">
-            <img :src="img.imgPath.default" :alt="img.alt" class="img" v-for="(img, index) in images" :key="index">
+            <a :href="img.link" class="img-link" v-for="(img, index) in images" :key="index" target="_blank">
+                <img :src="img.imgPath.default" :alt="img.alt" class="img">
+            </a>
         </div>
     </section>
 </template>
@@ -33,10 +35,15 @@ export default {
     width: 600px
     margin: 100px auto 40px auto
 
+.img 
+    width: 227px
+    height: 115px
+    object-fit: cover
+
 .img-container 
     width: 100%
     display: flex
-    justify-content: space-between
+    justify-content: space-around
 
 @media (max-width: 1023px) 
     .img

@@ -1,7 +1,6 @@
 import { defineStore } from 'pinia'
 
-import * as first from '@/assets/img/clients/first.png';
-import * as second from '@/assets/img/clients/second.png';
+import * as first from '@/assets/img/clients/mirn.png';
 import * as third from '@/assets/img/clients/third.png';
 
 export const useClientsStore = defineStore('clients', {
@@ -10,14 +9,12 @@ export const useClientsStore = defineStore('clients', {
         title: 'Наши клиеты вдохновляют нас.',
         images: [
             { 
+                link: 'https://beloe-zoloto.com/',
                 imgPath: first,
-                alt: 'Черкизово'
+                alt: 'Агрохолдинг "Мирный"'
             },
-            { 
-                imgPath: second, 
-                alt: 'Мираторг'
-            },
-            { 
+            {   
+                link: 'https://xn----8sbmaegpajbahrqg8d.xn--p1ai/',
                 imgPath: third,
                 alt: 'Лукман'
             },
