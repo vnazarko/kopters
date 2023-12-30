@@ -1,7 +1,7 @@
 <script scoped lang="ts">
 import { ref } from 'vue'
 
-import { sendMessage } from '../tg/sendMessage';
+import { sendMessage } from '../sendMessage/sendTgMessage';
 
 interface itemInterface {
     title: string,

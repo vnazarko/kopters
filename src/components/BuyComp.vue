@@ -1,7 +1,8 @@
 <script lang="ts">
 import { ref } from 'vue'
 
-import { sendMessage } from '../tg/sendMessage';
+import { sendMessage } from '../sendMessage/sendTgMessage';
+import axios from 'axios';
 
 export default {
     props: {
@@ -10,7 +11,26 @@ export default {
     },
     setup() {
         let modalInputName = ref('');
-        let modalInputPhone = ref('+7');;
+        let modalInputPhone = ref('+7');
+
+        const recipient = 'alg.vnazarenko@gmail.com';
+        const subject = 'Коптеры';
+
+        function sendEmail() {
+            const data = {
+                to: recipient,
+                subject: subject,
+                text: `${modalInputName.value} оставил заявку \n ${modalInputPhone.value}`
+            };
+
+            axios.post('http://localhost:5183/send-email', data)
+                .then(response => {
+                    console.log(response.data); 
+                })
+                .catch(error => {
+                    console.error('Ошибка:', error);
+                });
+        }
 
         function toggleModal(id: string) {
             let modal = document.getElementById(id);
@@ -32,7 +52,8 @@ export default {
                     
                     const date = new Date();
                     const textMessage = `${date.getDate()}.${date.getMonth()}, ${date.getHours()}:${date.getMinutes()} \n ${modalInputName.value} оставил заявку на коптер \n Телефон: ${modalInputPhone.value}`;
-                    sendMessage(textMessage);
+                    // sendMessage(textMessage);
+                    sendEmail();
     
                     const modalCont = document.getElementById('buyModalContainer')
                     if (modalCont) {
@@ -47,7 +68,7 @@ export default {
             
         }
 
-        return { modalInputName, modalInputPhone, toggleModal, validatationModal }
+        return { modalInputName, modalInputPhone, sendEmail, toggleModal, validatationModal }
     }
 }
 </script>
