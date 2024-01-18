@@ -19,5 +19,4 @@ export const useHeaderStore = defineStore('header', {
     }
   },
 })
-
 // npm i pinia @pinia/nuxt

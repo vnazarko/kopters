@@ -65,7 +65,7 @@ export default {
 @media (max-width: 429px)
     .img-container 
         position: absolute
-        rigth: auto
+        right: auto
         left: auto
     .title
         width: 100%

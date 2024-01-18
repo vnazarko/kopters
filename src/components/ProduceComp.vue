@@ -1,12 +1,10 @@
 <script lang="ts">
-
 export default {
     name: 'ProduceComp',
     props: {
         title: String,
     }
 }
-
 </script>
 <template>
     <section class="produce">
