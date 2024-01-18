@@ -5,6 +5,7 @@ export default {
         title: String,
     }
 }
+
 </script>
 <template>
     <section class="produce">
