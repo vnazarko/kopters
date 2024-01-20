@@ -16,7 +16,7 @@ onMounted(()=> {
 <template>
     <div class="preloader-container">
         <div class="preloader">
-            <img src="/logo.png" alt="Загрузка" class="preloader__icon">
+            <img src="/img/intro/logo.svg" alt="Загрузка" class="preloader__icon">
         </div>
     </div>
 </template>

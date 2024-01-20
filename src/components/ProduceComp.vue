@@ -35,7 +35,7 @@ export default {
 </template>
 <style lang="sass" scoped>
 .title
-    margin-top: 320px
+    margin-top: 50px
 .img-container
     display: flex
     flex-direction: row 
@@ -91,7 +91,7 @@ export default {
 
 @media (max-width: 1023px)
     .title 
-        margin-top: 250px
+        margin-top: 80px
 
 @media (max-width: 767px)
     .img 
