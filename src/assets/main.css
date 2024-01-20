@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+    background: #3A5A40;
+}
+
+#app {
+    overflow: hidden;
+}
+
+.container {
+    width: 1020px;
+    margin: 0 auto;
+}
+
+.title {
+    color: #DAD7CD;
+    text-align: center;
+    font-family: Unbounded;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-top: 100px;
+}
+
+.subtitle {
+    font-family: Montserrat;
+}
+
+.seo {
+    opacity: 0;
+    user-select: none;
+    position: absolute;
+}
+
+@media (max-width: 1200px) {
+    .container {
+        width: 700px;
+    }
+}
+@media (max-width: 767px) {
+    .container {
+        width: 420px;
+    }
+    .title {
+        font-size: 40px;
+    }
+}
+@media (max-width: 550px) {
+    .title {
+        font-size: 35px;
+    }
+}
+@media (max-width: 429px) {
+    .container {
+        width: 300px;
+    }
+    .title {
+        font-size: 25px;
+    }
+}
