@@ -1,9 +1,11 @@
 <script lang="ts">
+import { RouterLink } from 'vue-router'
 
 interface itemInterface {
+    id: number,
     bg: any,
     title: string,
-    path: string
+    path: string,
 }
 
 export default {
@@ -20,10 +22,10 @@ export default {
 <template>
     <section class="catalog">
         <div class="catalog-container">
-            <a class="catalog-container__item item" v-for="(item, index) in products" :key="index" :style="{ 'background-image': 'url(' + item.bg.default + ')' }" :href="item.path" loading="lazy">
+            <RouterLink class="catalog-container__item item" v-for="(item, index) in products" :key="index" :style="{ 'background-image': 'url(' + item.bg.default + ')' }" :to="'/catalog/' + item.id" loading="lazy">
                 <h2 class="item__title">{{ item.title }}</h2>
                 <div class="line"></div>
-            </a>
+            </RouterLink>
         </div>
     </section>
 </template>

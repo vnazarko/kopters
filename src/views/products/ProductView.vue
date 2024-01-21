@@ -5,13 +5,20 @@ import FooterComp from '../../components/FooterComp.vue';
 import Preloader from '../../components/Preloader.vue';
 
 import { useHeaderStore } from '../../stores/products/header';
-import { useVentStore } from '../../stores/products/vent/vent';
+import { useProductsStore } from '../../stores/catalog/products';
 import { useFooterStore } from '../../stores/home/footer';
 
+import { useRouter } from 'vue-router';
+const router = useRouter();
+
 const headerStore = useHeaderStore();
-const vent = useVentStore();
+const products = useProductsStore();
 const footerStore = useFooterStore()
 
+const id = router.currentRoute.value.params.id;
+const product = products.products[Number(id) - 1].product;
+
+window.scrollTo(0, 0);
 </script>
 <template>
     <h1 class="seo">большой потолочный вентилятор ВЕРТИКАЛЬ для производства</h1>
@@ -149,14 +156,14 @@ const footerStore = useFooterStore()
                         :links="headerStore.links"
             />
             <hr>
-            <ProductComp :title="vent.title"
-                         :img="vent.img"
-                         :info="vent.info"
-                         :description="vent.description"
+            <ProductComp :title="product.title"
+                         :img="product.img"
+                         :info="product.info"
+                         :description="product.description"
             />
             <hr>
             <video controls width="100%" class="video" autoplay muted preload="true">
-                <source :src="vent.video.default"/>
+                <source :src="product.video.default"/>
             </video>
             <div class="footer-cont">
                 <FooterComp :title="footerStore.buy.title"

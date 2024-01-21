@@ -145,8 +145,8 @@ const productsStore = useProductsStore();
         <div class="container">
             <div class="introCatalog">
                 <IntroComp :img="introStore.img" 
-                        :links="introStore.links"
-                        title="Каталог"
+                           :links="introStore.links"
+                           title="Каталог"
                 />
             </div>
             <CatalogComp :products="productsStore.products"

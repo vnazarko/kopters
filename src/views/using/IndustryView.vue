@@ -31,7 +31,6 @@ const introInfo = {
 }
 
 const text = industry.text.split('<br/>')
-console.log(text);
 
 </script>
 <template>
@@ -175,7 +174,9 @@ console.log(text);
                 <section class="industry">
                     <p class="industry__text" v-for="(textPart, index) in text" :key="index" v-html="textPart"></p>
                 </section>
-                <FooterComp />
+                <div class="footerIndustry">
+                    <FooterComp />
+                </div>
             </div>
         </div>
     </div>
@@ -226,4 +227,7 @@ console.log(text);
         .intro__title
             font-size: 20px
             margin-top: 110px
+    .footerIndustry
+        .footer
+            margin-top: 0
 </style>
