@@ -123,10 +123,6 @@ export default {
                 <div class="modal-content">
                     <h2 class="modal__title">Оставьте заявку</h2>
                     <h3 class="modal__subtitle">Для этого вам нужно оставить номер телефона и имя</h3>
-                    <form class="modal__form">
-                        <input type="text" class="modal__input" v-model="modalInputName" placeholder="Имя">
-                        <input type="tel" class="modal__input" v-model="modalInputPhone" maxlength="12" value="+7" placeholder="Телефон">
-                        <p class="modal__error" id="modalInfo"></p>
                         <button type="button" class="modal__btn" @click="validatationModal">Отправить</button>
                     </form>
                 </div>
